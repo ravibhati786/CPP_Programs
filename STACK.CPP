@@ -1,0 +1,79 @@
+#include<iostream.h>
+#include<conio.h>
+class Stack
+{
+	int Stack[5], size, top;
+	public:
+		Stack()
+		{
+			size = 5;
+			top = -1;
+		}
+		void Push();
+		void Pop();
+		void Display();
+};
+void Stack::Pop()
+{
+	if(top==-1)
+	{
+		cout<<"\nStack is Empty [Underflow]";
+		return;
+	}
+	top = top-1;
+}
+void Stack::Push()
+{
+	int value;
+	if(top == size - 1)
+	{
+		cout<<"\nStack is Overflow";
+		return;
+	}
+	cout<<"\nEnter the element which you want to Push = f";
+	cin>>value;
+	Stack[++top] = value;
+
+}
+void Stack::Display()
+{
+	if(top == -1)
+	{
+		cout<<"\nStack is Underflow";
+		return;
+	}
+	for(int i=top;i>=0;i--)
+	{
+	cout<<endl<<"Stack["<<i<<"]="<<Stack[i];
+	}
+}
+
+void main()
+{
+	clrscr();
+	Stack s;
+	char ch;
+	do
+	{
+		int press;
+		cout<<"\nOperations on Stack";
+		cout<<"\nPress 1 Display the Stack";
+		cout<<"\nPress 2 to Push an element";
+		cout<<"\nPress 3 to Pop an element";
+		cout<<"\nEnter Your Choice = ";
+		cin>>press;
+		switch(press)
+		{
+			case 1: s.Display();
+				break;
+			case 2: s.Push();
+				break;
+			case 3: s.Pop();
+				break;
+			default: cout<<"\nWrong Choice";
+		}
+		cout<<"\nDo you want to Continue(Y) =";
+		cin>>ch;
+	}while(ch=='y'||ch=='Y');
+	getch();
+}

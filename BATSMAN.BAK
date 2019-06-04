@@ -1,0 +1,26 @@
+#include<iostream.h>
+#include<conio.h>
+class batsman
+{
+	int bcode;
+	char bname[20];
+	int innings,notout,runs;
+	float batavg;
+
+	void calcavg()
+	{
+		batavg = runs/(innings-notout);
+	}
+
+	public:
+
+	readdata()
+	{
+		cout<<"Enter the bcode of batsman=";
+		cin>>bcode;
+		cout<<"Enter the bcode of batsman=";
+		cin>>bcode;cout<<"Enter the bcode of batsman=";
+		cin>>bcode;cout<<"Enter the bcode of batsman=";
+		cin>>bcode;cout<<"Enter the bcode of batsman=";
+		cin>>bcode;
+	}

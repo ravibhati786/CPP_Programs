@@ -1,0 +1,35 @@
+			//assining objectf
+
+#include<iostream.h>
+#include<conio.h>
+class a
+{
+	int a ,b ;
+	public:
+	void setvalue(int i,int y)
+	{
+	     a = i ;
+	     b = y ;
+	}
+	void  display()
+	{
+		cout<<"a no is = "<<a<<endl;
+		cout<<"b no is = "<<b<<endl;
+	}
+};
+void main()
+{
+	clrscr();
+	a a1,a2;
+	a1.setvalue(10,20);
+	a2.setvalue(0,0);
+	a1.display();
+	a2.display();
+	a2  = a1 ;
+	cout<<"after assining a1 object to a2"<<endl;
+	a1.display();
+	getch();
+
+
+
+}

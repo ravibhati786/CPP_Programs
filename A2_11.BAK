@@ -1,0 +1,12 @@
+#include<iostream.h>
+#include<conio.h>
+class student
+{
+	private:
+		char std_name[10];
+		float
+};
+void main()
+{
+
+}

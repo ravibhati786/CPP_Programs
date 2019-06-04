@@ -1,0 +1,156 @@
+#include<iostream.h>
+#include<conio.h>
+class Node
+{
+	public:
+		Node *left;
+		int data;
+		Node *right;
+
+		Node(int val)
+		{
+			data = val;
+			left = NULL;
+			right = NULL;
+		}
+};
+class Tree
+{
+	Node *root;
+
+	public:
+		Tree()
+		{
+			root = NULL;
+		}
+		//		void Insert();
+		Node* Create(int,Node *);
+		void Display_InOrder(Node *);
+		void Display_PreOrder(Node *);
+		void Display_PostOrder(Node *);
+		void Display();
+		void Operations();
+};
+void Tree :: Display()
+{
+
+}
+void Tree :: Display_PreOrder(Node* T)
+{
+	if(T == NULL)
+	{
+		return;
+	}
+	cout<<"\t"<<T->data;
+	Display_InOrder(T->left);
+	Display_InOrder(T->right);
+}
+
+void Tree :: Display_PostOrder(Node* T)
+{
+	if(T == NULL)
+	{
+		return;
+	}
+	Display_InOrder(T->left);
+	Display_InOrder(T->right);
+	cout<<"\t"<<T->data;
+
+}
+
+void Tree :: Display_InOrder(Node* T)
+{
+	if(T == NULL)
+	{
+		return;
+	}
+	Display_InOrder(T->left);
+	cout<<"\t"<<T->data;
+	Display_InOrder(T->right);
+}
+
+Node* Tree :: Create(int value,Node* T)
+{
+	if(T == NULL)
+	{
+		return T = new Node(value);
+	}
+	if(value== T->data)
+	{
+		cout<<"\nNode is already present;";
+		return T;
+	}
+	if(value < T->data)
+		T->left = Create(value,T->left);
+	else
+		T->right = Create(value,T->right);
+
+	return T;
+
+}
+void Tree :: Operations()
+{
+	int ch;
+		cout<<"\n-----------------------------------------";
+		cout<<"\nOperations on Tree =>";
+		cout<<"\nPress 1 to Insert an Element in Tree:";
+		cout<<"\nPress 2 Display the Tree in InOrder:";
+		cout<<"\nPress 3 Display the Tree in PreOrder:";
+		cout<<"\nPress 4 Display the Tree in PostOrder:";
+		cout<<"\nPress 5 to Insert a Node:";
+		cout<<"\nPress 6 to Insert an element at position:";
+		cout<<"\nPress 7 to Delete an element from List:";
+		cout<<"\nPress 8 to Find a Node:";
+		cout<<"\nPress 9 to print the list in reverse mode:";
+		cout<<"\nPress 9 to Exit:";
+		cout<<"\nEnter Your Choice = ";*/
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: int value;
+				cout<<"Enter the Element to be inserted = ";
+				cin>>value;
+				root = Create(value,root);
+				Operations();
+				break;
+			case 2: cout<<"\Your Tree(InOrder) => ";
+				if(root == NULL)
+				{
+					cout<<"\nTree is Empty";
+					return;
+				}
+				Display_InOrder(root);
+				Operations();
+				break;
+			case 3: cout<<"\Your Tree(InOrder) => ";
+				if(root == NULL)
+				{
+					cout<<"\nTree is Empty";
+					return;
+				}
+				Display_InOrder(root);
+				Operations();
+				break;
+			case 4: cout<<"\Your Tree(InOrder) => ";
+				if(root == NULL)
+				{
+					cout<<"\nTree is Empty";
+					return;
+				}
+				Display_InOrder(root);
+				Operations();
+				break;
+			case 5: l.Insert_Position();
+				break;                */
+			default: cout<<"\nWrong Choice";
+		}
+
+
+}
+void main()
+{
+	clrscr();
+	Tree T;
+	T.Operations();
+	getch();
+}

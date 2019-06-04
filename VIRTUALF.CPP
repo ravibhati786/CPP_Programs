@@ -1,0 +1,61 @@
+     //	virtual memebers //
+#include<iostream.h>
+#include<conio.h>
+
+ class a
+ {
+   protected:
+   int width,height;
+   public :
+   void set_values(int a, int b)
+   {
+     width = a;
+     height = b;
+
+   }
+
+    int area()
+     {
+       return 0;
+     }
+ };
+ class b : public a
+ {
+   public:
+   int area()
+   {
+    return width * height;
+   }
+ };
+  class c : public a
+ {
+   public:
+   int area()
+   {
+    return( width * height/2);
+   }
+ };
+	int main()
+	{
+	clrscr();
+	 b obj1;
+	 c obj2;
+	 a obj3;
+	 a*p1 = &obj1;
+	 a*p2 = &obj2;
+	 a*p3 = &obj3;
+
+	 p1-> set_values(4,5);
+	 p2-> set_values(4,5);
+	 p3-> set_values(4,5);
+
+	 cout<<p1->area()<<"\n";
+
+	 cout<<p2->area()<<"\n";
+	 cout<<p3->area()<<"\n";
+
+	 getch();
+	 return 0;
+
+
+	}

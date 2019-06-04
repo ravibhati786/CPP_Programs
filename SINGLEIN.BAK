@@ -1,0 +1,53 @@
+#include<iostream.h>
+#include<conio.h>
+class a
+{
+	int a;
+	public:
+	void getvalue(int);
+	int get_a();
+
+};
+class b:public a
+{
+	int b , c ;
+	public:
+	void get_b(int);
+	void add();
+	void disp();
+
+};
+void a::getvalue(int x)
+{
+	a = x;
+}
+int a::get_a()
+{
+	return a;
+}
+void b::get_b(int y)
+{
+	b = y;
+}
+void b::add()
+{
+	c = get_a();
+	c = c + b;
+}
+void b::disp()
+{
+	cout<<"values of a "<<get_a()<<endl;
+	cout<<"values of b "<<b<<endl;
+	cout<<"values of c with addition of a and b "<<c<<endl;
+}
+int main()
+{
+	clrscr();
+	b b1;
+	b1.getvalue(5);
+	b1.get_b(4);
+	b1.add();
+	b1.disp();
+	getch();
+	return 0;
+}

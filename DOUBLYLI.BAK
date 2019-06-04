@@ -1,0 +1,186 @@
+#include<iostream.h>
+#include<conio.h>
+class Node
+{
+	public:
+		Node *prev;
+		int data;
+		Node *next;
+};
+class List
+{
+	Node * Head;
+
+	public:
+		List()
+		{
+			Head = NULL;
+		}
+		void Create_List();
+		void Insert_First();
+		void Insert_Last();
+		void Insert_Position();
+		void Delete_Node();
+		void Display_List();
+		void Find_Node();
+		void Reverse();
+
+};
+void List :: Insert_Position()
+{
+	if(Head == NULL)
+	{
+		cout<<"\nList is Empty, First Create List.";
+		return;
+	}
+	int value, position;
+	cout<<"\nEnter the value which you want to insert = ";
+	cin>>value;
+	cout<<"\nEnter the position where you want to insert = ";
+	cin>>position;
+	Node *ptr = Head;
+	for(int i=0; i<position-1; i++)
+	{
+		ptr = ptr->next;
+		if(ptr == NULL)
+		{
+			cout<<"\nThere are less than";
+			cout<<position<<" elements."<<endl;
+			return;
+		}
+	}
+	Node *newNode = new Node;
+	newNode->data = value;
+
+	if(ptr->next == NULL)
+	{
+		ptr->next = newNode;
+		newNode->next = NULL;
+		newNode->prev = ptr;
+	}
+	else
+	{
+		newNode->next = ptr->next;
+		newNode->next->prev = newNode;
+		ptr->next = newNode;
+		newNode->prev = ptr;
+	}
+
+}
+void List :: Insert_Last()
+{
+	if(Head == NULL)
+	{
+		cout<<"\nList is Empty, First Create the List.";
+		return;
+	}
+	int value;
+	cout<<"\nPlease enter the value to Insert a node";
+	cin>>value;
+	Node *newNode = new Node;
+	newNode->data= value;
+	newNode->next = NULL;
+	Node *ptr = Head;
+	while(ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
+	ptr->next = newNode;
+	newNode->prev = ptr;
+
+}
+void List :: Insert_First()
+{
+	int value;
+	cout<<"\Enter the element to insert at first position = ";
+	cin>>value;
+	Node *newNode = new Node;
+	newNode->data = value;
+	newNode->prev = NULL;
+	if(Head == NULL)
+	{
+		newNode->next = NULL;
+		Head = newNode;
+		cout<<"\nList wast empty so Only one node is there now.";
+	}
+	else
+	{
+		Head->prev = newNode;
+		newNode->next = Head;
+		Head = newNode;
+	}
+
+}
+void List :: Display_List()
+{
+	if(Head == NULL)
+	{
+		cout<<"\nList is Empty [Underflow]";
+		return;
+	}
+	int count = 0;
+	Node *ptr = Head;
+	cout<<"\nYour List is = ";
+	while(ptr != NULL)
+	{
+		cout<<ptr->data<<"\t";
+		ptr = ptr->next;
+		count++;
+	}
+	cout<<"\nTotal Number of Nodes are = "<<count;
+}
+void List :: Create_List()
+{
+	if(Head!= NULL)
+	{
+		cout<<"\nList is already create.";
+		return;
+	}
+	int value;
+	cout<<"\nPlease enter the element which you want to insert= ";
+	cin>>value;
+	Node *newNode = new Node;
+	newNode->data = value;
+	newNode->prev = NULL;
+	newNode->next = NULL;
+	Head = newNode;
+}
+void main()
+{
+	clrscr();
+	List l;
+	int ch;
+	do
+	{
+		cout<<"\n-----------------------------------------";
+		cout<<"\nOperations on Doubly Linked List=>";
+		cout<<"\nPress 1 Display the List:";
+		cout<<"\nPress 2 to Create a List:";
+		cout<<"\nPress 3 to Insert an element at First position:";
+		cout<<"\nPress 4 to Insert an element at Last position:";
+		cout<<"\nPress 5 to Insert an element at position:";
+		cout<<"\nPress 6 to Delete an element from List:";
+		cout<<"\nPress 7 to Find a Node:";
+		cout<<"\nPress 8 to print the list in reverse mode:";
+		cout<<"\nPress 9 to Exit:";
+		cout<<"\nEnter Your Choice = ";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: l.Display_List();
+				break;
+			case 2: l.Create_List();
+				break;
+			case 3: l.Insert_First();
+				break;
+			case 4: l.Insert_Last();
+				break;
+			case 5: l.Insert_Position();
+				break;
+			default: cout<<"\nWrong Choice";
+		}
+	}while(ch!=9);
+	getch();
+	clrscr();
+
+}

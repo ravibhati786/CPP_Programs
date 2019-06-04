@@ -1,0 +1,41 @@
+#include<iostream.h>
+#include<conio.h>
+class member
+{
+	protected:
+			int memid;
+			char memname[20];
+	public:
+		void getData_mem()
+		{
+			cin>>memid>>memname;
+		}
+};
+
+class ym:public member
+{
+	protected:
+			float ym_fees,add_on_fees;
+	public:
+		void getData_ym()
+		{
+			cin>>ym_fees>>add_on_fees;
+		}
+};
+
+class mdetails:public ym
+{
+	public:
+		void putData()
+		{
+			cout<<memid<<memname<<ym_fees<<add_on_fees;
+		}
+};
+void main()
+{
+	mdetails obj;
+	obj.getData_mem();
+	obj.getData_ym();
+	obj.putData();
+	getch();
+}
